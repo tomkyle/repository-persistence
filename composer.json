@@ -1,0 +1,58 @@
+{
+		"name": "tomkyle/repository-persistence",
+		"description": "Scaffold for Repository-and-Persistence design pattern",
+		"license": "proprietary",
+
+    "autoload": {
+        "psr-4": {
+            "tomkyle\\RepositoryPersistence\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "tests\\": "tests"
+        }
+    },
+    "require": {
+    		"php": "^8.2",
+				"nette/utils": "^4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "phpspec/prophecy-phpunit": "^2.0.1",
+        "php-coveralls/php-coveralls": "^2.5.2",
+        "phpstan/phpstan": "^1.10",
+        "friendsofphp/php-cs-fixer": "^3.11",
+        "roave/security-advisories": "dev-latest",
+				"symfony/yaml": "^7.0",
+				"spatie/temporary-directory": "^2.2",
+				"spatie/yaml-front-matter": "^2.0",
+				"mnapoli/silly": "^1.9",
+				"symfony/finder": "^7.0",
+				"rector/rector": "^1.0"
+    },
+    "scripts": {
+        "rector": [ "@rector:dry" ],
+        "rector:dry": "rector process --dry-run",
+        "rector:apply": "rector process",
+
+
+        "phpcs": [ "@phpcs:dry" ],
+        "phpcs:dry": "PHP_CS_FIXER_IGNORE_ENV=1 php-cs-fixer fix --verbose --diff --dry-run",
+        "phpcs:apply": [
+            "PHP_CS_FIXER_IGNORE_ENV=1 php-cs-fixer fix --verbose --diff",
+            "@test:unit"
+        ],
+
+        "test": [
+            "@test:unit",
+            "@test:integration"
+        ],
+        "test:unit": [
+            "phpunit --testsuite unit"
+        ],
+        "test:integration": [
+            "phpunit --testsuite integration"
+        ]
+    }
+}
