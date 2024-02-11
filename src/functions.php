@@ -7,10 +7,10 @@
  */
 
 if(!function_exists("json_validate")) {
-    function json_validate()
+    function json_validate(string $json) : bool
     {
         try {
-            json_decode($json, JSON_THROW_ON_ERROR);
+            json_decode($json, flags: JSON_THROW_ON_ERROR);
             return true;
         } catch(\JsonException) {
             return false;
