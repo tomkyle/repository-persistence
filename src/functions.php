@@ -7,7 +7,7 @@
  */
 
 if(!function_exists("json_validate")) {
-    function json_validate(string $json) : bool
+    function json_validate(string $json): bool
     {
         try {
             json_decode($json, flags: JSON_THROW_ON_ERROR);
