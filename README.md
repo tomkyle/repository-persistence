@@ -31,9 +31,9 @@ In this example, the Persistence works on a directory `path/to/json` in which th
 
 ```json
 {
-	"age": 30,
-	"city": "New York",
-	"name": "John Doe"
+  "age": 30,
+  "city": "New York",
+  "name": "John Doe"
 }
 ```
 
@@ -43,25 +43,23 @@ In this example, the Persistence works on a directory `path/to/json` in which th
 
 ```php
 try {
-	$person = $repo->get('john-doe');
-	print_r($person);
+  $person = $repo->get('john-doe');
+  print_r($person);
 } 
 catch (\OutOfBoundsException) {
   // Not found
 }
 ```
 
-Output:
+Output will be like:
 
 ```text
-  Array  (
-    [age] => 30
-    [city] => New York
-    [name] => John Doe
-  )
+Array  (
+  [age] => 30
+  [city] => New York
+  [name] => John Doe
+)
 ```
-
-
 
 **Find one item by criteria.** This method my return `null`.
 
