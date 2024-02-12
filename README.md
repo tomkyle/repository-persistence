@@ -27,14 +27,41 @@ $repo = new Repository(
 );
 ```
 
+In this example, the Persistence works on a directory `path/to/json` in which the items are stored in JSON files named by their ID. — Example: **john-doe.json**
+
+```json
+{
+	"age": 30,
+	"city": "New York",
+	"name": "John Doe"
+}
+```
+
 ## Usage
 
 **Get item.** This method may throw `\OutOfBoundsException`
 
 ```php
-$repo->get(42);
-$repo->get('foo');
+try {
+	$person = $repo->get('john-doe');
+	print_r($person);
+} 
+catch (\OutOfBoundsException) {
+  // Not found
+}
 ```
+
+Output:
+
+```text
+  Array  (
+    [age] => 30
+    [city] => New York
+    [name] => John Doe
+  )
+```
+
+
 
 **Find one item by criteria.** This method my return `null`.
 
@@ -171,7 +198,7 @@ $repository = new Repository($persistence)
 
 | Method    | Required Parameters   | Optional                                                 | Return              | Description  |
 | --------- | --------------------- | -------------------------------------------------------- | ------------------- | ------------ |
-| get       | id                    |                                                          | `array|object`      | The record   |
+| get       | `string|id` id        |                                                          | `array|object`      | The record   |
 | findOneBy | `array` criteria      |                                                          | `array|object|null` | One record   |
 | findAll   |                       |                                                          | `iterable`          | All records  |
 | findBy    | `array` criteria      | `?array` orderBy,<br /> `?int` limit<br /> `?int` offset | `iterable`          | Some records |
@@ -201,7 +228,7 @@ This will watch changes inside the **src/** and **tests/** directories and run a
 $ npm run watch
 ```
 
-#### Run all tests
+### Run all tests
 
 Choose to your taste:
 
