@@ -12,7 +12,9 @@ $finder = PhpCsFixer\Finder::create()
     ]);
 
 return (new PhpCsFixer\Config())->setRules([
-    '@PSR12' => true,
+    '@PER-CS' => true,
+    '@PHP82Migration' => true,
+
     'header_comment' => [
         'comment_type' => 'PHPDoc',
         'header' => $header,

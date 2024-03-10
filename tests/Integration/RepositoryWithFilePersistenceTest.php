@@ -184,7 +184,7 @@ class RepositoryWithFilePersistenceTest extends TestCase
             dirname(__DIR__, 2),
             'tests',
             'fixtures',
-            $dir
+            $dir,
         ]);
 
         // Copy fixtures to a temp directory which will be deleted afterwards

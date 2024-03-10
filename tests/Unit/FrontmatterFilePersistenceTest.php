@@ -99,7 +99,7 @@ class FrontmatterFilePersistenceTest extends TestCase
     {
         $sample = ['foo' => 'bar'];
 
-        $fileContent = "---\ntitle: Test Title\n".Yaml::dump($sample)."\n---\n" . $this->testContent;
+        $fileContent = "---\ntitle: Test Title\n" . Yaml::dump($sample) . "\n---\n" . $this->testContent;
         $this->filePersistenceMock->method('readFromFile')->willReturn($fileContent);
         $this->filePersistenceMock->method('decode')->willReturn($sample);
 
@@ -137,7 +137,7 @@ class FrontmatterFilePersistenceTest extends TestCase
         $this->filePersistenceMock->expects($this->once())->method('writeToFile')
             ->with(
                 $this->equalTo($this->tempFilePath),
-                $this->callback(fn ($fileContent) => str_starts_with((string) $fileContent, "---\n") && str_contains((string) $fileContent, $this->testContent))
+                $this->callback(fn($fileContent) => str_starts_with((string) $fileContent, "---\n") && str_contains((string) $fileContent, $this->testContent))
             )
             ->willReturn(true);
 
