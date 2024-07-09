@@ -1,6 +1,6 @@
 <h1 align="center">Repository · Persistence</h1>
 
-[![PHP Composer](https://github.com/tomkyle/repository-persistence/actions/workflows/php.yml/badge.svg)](https://github.com/tomkyle/repository-persistence/actions/workflows/php.yml)
+[![PHP Composer](https://github.com/tomkyle/repository-persistence/actions/workflows/php.yml/badge.svg)](https://github.com/tomkyle/repository-persistence/actions/workflows/php.yml) [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 
 **Scaffold for Repository-and-Persistence design pattern.**
 
