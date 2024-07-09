@@ -94,7 +94,7 @@ class Repository implements RepositoryInterface
      */
     public function findAll(): iterable
     {
-        $items = array_map(fn ($item) => ($this->item_factory)($item), $this->persistence->readAll());
+        $items = array_map(fn($item) => ($this->item_factory)($item), $this->persistence->readAll());
 
         return ($this->collection_factory)($items);
     }

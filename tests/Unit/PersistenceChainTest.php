@@ -33,7 +33,7 @@ class PersistenceChainTest extends TestCase
         // Initialize PersistenceChain with the mock Persistence object
         $this->sut = new PersistenceChain([
             $this->mockPersistence1,
-            $this->mockPersistence2
+            $this->mockPersistence2,
         ]);
     }
 

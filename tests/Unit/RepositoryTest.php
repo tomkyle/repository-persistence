@@ -89,7 +89,7 @@ class RepositoryTest extends TestCase
         $repo = new Repository(new InMemoryPersistence([
             ['some' => 'criteria', 'color' => 'blue'],
             ['some' => 'criteria', 'color' => 'orange'],
-            ['some' => 'other', 'color' => 'red']
+            ['some' => 'other', 'color' => 'red'],
         ]));
 
         $empty_repo = new Repository(new NoPersistence());
@@ -98,7 +98,7 @@ class RepositoryTest extends TestCase
             'Empty repo with "NoPersistence"'            => [ $empty_repo, ['color' => 'yellow'], 0 ],
             'Look for color that does not exist in repo' => [ $repo,       ['color' => 'yellow'], 0 ],
             'Should return only 1 item for unique value' => [ $repo,       ['some' => 'criteria', 'color' => 'orange'], 1 ],
-            'Should return 2 matching items'             => [ $repo,       ['some' => 'criteria'],                      2 ]
+            'Should return 2 matching items'             => [ $repo,       ['some' => 'criteria'],                      2 ],
         ];
     }
 

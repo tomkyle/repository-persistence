@@ -83,9 +83,9 @@ class FrontmatterFilePersistence extends FilePersistenceDecoratorAbstract
 
         $files = glob($base_dir . '/*' . $ext) ?: [];
 
-        $id_array = array_map(static fn ($file) => basename((string) $file, $ext), $files);
+        $id_array = array_map(static fn($file) => basename($file, $ext), $files);
 
-        $all_read = array_map(fn (string|int $id, &$store = null): array => $this->read($id, $store), $id_array);
+        $all_read = array_map(fn(string|int $id, &$store = null): array => $this->read($id, $store), $id_array);
         return array_filter($all_read);
     }
 
@@ -117,6 +117,7 @@ class FrontmatterFilePersistence extends FilePersistenceDecoratorAbstract
         if ($file_content instanceof \Stringable) {
             $file_content = $file_content->__toString();
         }
+
         return $this->persistence->writeToFile($file_path, $frontmatter . $file_content);
     }
 

@@ -23,7 +23,7 @@ abstract class FilePersistenceAbstract implements FilePersistence
     /**
      * @var int The output directory permissions.
      */
-    protected int $directory_permissions = 0755;
+    protected int $directory_permissions = 0o755;
 
     /**
      * Examples: "json", "yaml"
@@ -220,8 +220,8 @@ abstract class FilePersistenceAbstract implements FilePersistence
         $ext = $this->getExtension(dot: true);
         $files = glob($this->basedir . ('/*' . $ext)) ?: [];
 
-        $id_array = array_map(static fn ($file) => basename($file, $ext), $files);
-        $all_read = array_map(fn (string|int $id): array => $this->read($id), $id_array);
+        $id_array = array_map(static fn($file) => basename($file, $ext), $files);
+        $all_read = array_map(fn(string|int $id): array => $this->read($id), $id_array);
 
         return array_filter($all_read);
     }

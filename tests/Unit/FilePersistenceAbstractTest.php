@@ -30,8 +30,8 @@ class FilePersistenceAbstractTest extends TestCase
 
         $this->sut = $this->getMockForAbstractClass(FilePersistenceAbstract::class, [$temp_dir]);
 
-        $this->sut->method('encode')->willReturnCallback(static fn ($data) => json_encode($data));
-        $this->sut->method('decode')->willReturnCallback(static fn ($content) => json_decode((string) $content, true));
+        $this->sut->method('encode')->willReturnCallback(static fn($data) => json_encode($data));
+        $this->sut->method('decode')->willReturnCallback(static fn($content) => json_decode((string) $content, true));
     }
 
     protected function tearDown(): void
@@ -62,7 +62,7 @@ class FilePersistenceAbstractTest extends TestCase
     {
         return [
             'root directory' => ['/'],
-            'empty directory' => ['']
+            'empty directory' => [''],
         ];
     }
 

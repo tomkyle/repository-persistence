@@ -155,7 +155,7 @@ abstract class FilePersistenceTestBase extends TestCase
     {
         return [
             'root directory' => ['/'],
-            'empty directory' => ['']
+            'empty directory' => [''],
         ];
     }
 
