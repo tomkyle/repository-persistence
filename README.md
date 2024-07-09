@@ -64,7 +64,7 @@ Array  (
 )
 ```
 
-**Find one item by criteria.** This method my return `null`.
+**Find one item by criteria.** This method may return `null`.
 
 ```php
 $repo->findOneBy([
@@ -132,13 +132,13 @@ $persistence = new Persistence\YamlFilePersistence('path/to/yaml');
 
 ### Methods API
 
-| Method  | Parameters      | Return       | Description   |
-| ------- | --------------- | ------------ | ------------- |
-| create  | `array` data    | `string|int` | New ID        |
-| read    | `string|int` id | `array`      | The record    |
-| readAll |                 | array        | All records   |
-| update  | `array` data    | `int`        | Affected rows |
-| delete  | `string|int`    | `int`        | Affected rows |
+| Method  | Parameters       | Return        | Description   |
+| ------- | ---------------- | ------------- | ------------- |
+| create  | `array` data | `string¦int` | New ID        |
+| read    | `string¦int` id | `array`       | The record    |
+| readAll |                  | array         | All records   |
+| update  | `array` data     | `int`         | Affected rows |
+| delete  | `string¦int`  | `int`         | Affected rows |
 
 ### Special implementations
 
@@ -199,12 +199,12 @@ $repository = new Repository($persistence)
 
 | Method    | Required Parameters   | Optional                                                 | Return              | Description  |
 | --------- | --------------------- | -------------------------------------------------------- | ------------------- | ------------ |
-| get       | `string|id` id        |                                                          | `array|object`      | The record   |
-| findOneBy | `array` criteria      |                                                          | `array|object|null` | One record   |
+| get       | `string¦int` id     |                                                          | `array¦object`     | The record   |
+| findOneBy | `array` criteria      |                                                          | `array¦object¦null` | One record   |
 | findAll   |                       |                                                          | `iterable`          | All records  |
 | findBy    | `array` criteria      | `?array` orderBy,<br /> `?int` limit<br /> `?int` offset | `iterable`          | Some records |
-| save      | `array|object` entity |                                                          | `bool`              |              |
-| delete    | `array|object` entity |                                                          | `bool`              |              |
+| save      | `array¦object` entity |                                                          | `bool`              |              |
+| delete    | `array¦object` entity |                                                          | `bool`              |              |
 
 ---
 
