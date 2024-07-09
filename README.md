@@ -1,6 +1,9 @@
 <h1 align="center">Repository · Persistence</h1>
 
-[![PHP Composer](https://github.com/tomkyle/repository-persistence/actions/workflows/php.yml/badge.svg)](https://github.com/tomkyle/repository-persistence/actions/workflows/php.yml)
+[![Packagist](https://img.shields.io/packagist/v/tomkyle/repository-persistence.svg?style=flat)](https://packagist.org/packages/tomkyle/repository-persistence)
+[![PHP version](https://img.shields.io/packagist/php-v/tomkyle/repository-persistence.svg)](https://packagist.org/packages/tomkyle/repository-persistence)
+[![PHP Composer](https://github.com/tomkyle/repository-persistence/actions/workflows/php.yml/badge.svg)](https://github.com/tomkyle/repository-persistence/actions/workflows/php.yml) 
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 
 **Scaffold for Repository-and-Persistence design pattern.**
 
