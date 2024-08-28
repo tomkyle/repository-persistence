@@ -10,7 +10,7 @@
   "scripts": {
 
     "watch": "npm-run-all -p watch:*",
-    "watch:src": "chokidar \"src/**/*.php\"          -c \"bin/run-test unit {path} && npm run phpstan {path} && npm run rector {path}\"",
+    "watch:src": "chokidar \"src/**/*.php\"          -c \"./vendor/bin/frt {path} && npm run phpstan {path} && npm run rector {path}\"",
     "watch:tests": "chokidar \"tests/**/*.php\"      -c \"npm run phpunit {path}\"",
     "watch:mermaid": "chokidar \"**/*.mmd\"          -c \"mmdc -e svg -i {path}\"",
 
@@ -23,9 +23,9 @@
     "rector:apply": "./vendor/bin/rector process",
 
     "phpunit": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --configuration phpunit.npm.xml",
+    "phpunit:short": "npm run phpunit -- --no-coverage",
     "phpunit:filter": "npm run phpunit -- --testsuite unit --filter",
     "phpunit:unit": "npm run phpunit -- --testsuite unit",
-    "phpunit:integration": "npm run phpunit -- --testsuite integration",
-    "phpunit:functional": "npm run phpunit -- --testsuite functional"
+    "phpunit:integration": "npm run phpunit -- --testsuite integration"
   }
 }
