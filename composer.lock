@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9bcdf4f74e8080e5d654e24ab797f843",
+    "content-hash": "3f3e4a93c3b3369f39012eeb5d0ff689",
     "packages": [
         {
             "name": "nette/utils",
@@ -6619,6 +6619,56 @@
                 }
             ],
             "time": "2024-03-03T12:36:25+00:00"
+        },
+        {
+            "name": "tomkyle/find-run-test",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tomkyle/frt.git",
+                "reference": "a12a55ce86d18ae7ba20e825f54fce220bc8b434"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tomkyle/frt/zipball/a12a55ce86d18ae7ba20e825f54fce220bc8b434",
+                "reference": "a12a55ce86d18ae7ba20e825f54fce220bc8b434",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2",
+                "symfony/console": "^7.1",
+                "symfony/finder": "^7.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.63",
+                "phpstan/phpstan": "^1.11",
+                "phpunit/phpunit": "^11.2",
+                "rector/rector": "^1.2",
+                "spatie/temporary-directory": "^2.2"
+            },
+            "bin": [
+                "bin/frt"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "tomkyle\\FindRunTest\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Find and run the PHPUnit test for a single changed PHP class file, most useful when watching the filesystem",
+            "keywords": [
+                "phpunit",
+                "unit testing"
+            ],
+            "support": {
+                "issues": "https://github.com/tomkyle/frt/issues",
+                "source": "https://github.com/tomkyle/frt/tree/1.0.5"
+            },
+            "time": "2024-08-28T15:12:28+00:00"
         },
         {
             "name": "webmozart/assert",
