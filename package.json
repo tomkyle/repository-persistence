@@ -23,6 +23,7 @@
     "rector:apply": "./vendor/bin/rector process",
 
     "phpunit": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --configuration phpunit.npm.xml",
+    "phpunit:short": "npm run phpunit -- --no-coverage",
     "phpunit:filter": "npm run phpunit -- --testsuite unit --filter",
     "phpunit:unit": "npm run phpunit -- --testsuite unit",
     "phpunit:integration": "npm run phpunit -- --testsuite integration"
