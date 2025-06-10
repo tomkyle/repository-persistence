@@ -9,6 +9,7 @@
 namespace tests\Unit;
 
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 use tomkyle\RepositoryPersistence\Persistence\FilePersistenceAbstract;
 use Spatie\TemporaryDirectory\TemporaryDirectory;
 
@@ -21,19 +22,28 @@ class FilePersistenceAbstractTest extends TestCase
 
     private $temp_dir;
 
+    #[\Override]
     protected function setUp(): void
     {
         $this->temp_dir = (new TemporaryDirectory())->create();
 
-        // Mock the FilePersistenceAbstract abstract class, specifying default behavior for abstract methods.
+        // Create concrete implementation of FilePersistenceAbstract for testing
         $temp_dir = $this->temp_dir->path();
 
-        $this->sut = $this->getMockForAbstractClass(FilePersistenceAbstract::class, [$temp_dir]);
+        $this->sut = new class ($temp_dir) extends FilePersistenceAbstract {
+            public function encode(mixed $data): string
+            {
+                return json_encode($data);
+            }
 
-        $this->sut->method('encode')->willReturnCallback(static fn($data) => json_encode($data));
-        $this->sut->method('decode')->willReturnCallback(static fn($content) => json_decode((string) $content, true));
+            public function decode(string $content): array
+            {
+                return json_decode($content, true);
+            }
+        };
     }
 
+    #[\Override]
     protected function tearDown(): void
     {
         $this->temp_dir->delete();
@@ -50,8 +60,8 @@ class FilePersistenceAbstractTest extends TestCase
 
     /**
      * Verifies that an exception is thrown when attempting to set an invalid base directory.
-     * @dataProvider invalidBaseDirProvider
      */
+    #[DataProvider('invalidBaseDirProvider')]
     public function testExceptionOnInvalidSetBaseDir(string $new_base_dir): void
     {
         $this->expectException(\UnexpectedValueException::class);

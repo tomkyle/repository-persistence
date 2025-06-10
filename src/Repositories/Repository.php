@@ -66,6 +66,7 @@ class Repository implements RepositoryInterface
     /**
      * {@inheritdoc}
      */
+    #[\Override]
     public function getNextId(): int|string
     {
         return Random::generate(10);
@@ -74,6 +75,7 @@ class Repository implements RepositoryInterface
     /**
      * {@inheritdoc}
      */
+    #[\Override]
     public function get($id): array|object
     {
         $item = $this->persistence->read($id);
@@ -83,6 +85,7 @@ class Repository implements RepositoryInterface
     /**
      * {@inheritdoc}
      */
+    #[\Override]
     public function findOneBy(array $criteria): null|array|object
     {
         $all = $this->findBy($criteria);
@@ -92,6 +95,7 @@ class Repository implements RepositoryInterface
     /**
      * {@inheritdoc}
      */
+    #[\Override]
     public function findAll(): iterable
     {
         $items = array_map(fn($item) => ($this->item_factory)($item), $this->persistence->readAll());
@@ -102,6 +106,7 @@ class Repository implements RepositoryInterface
     /**
      * {@inheritdoc}
      */
+    #[\Override]
     public function findBy(array $criteria, ?array $orderBy = null, ?int $limit = null, ?int $offset = null): iterable
     {
         $records = $this->findAll();
@@ -119,6 +124,7 @@ class Repository implements RepositoryInterface
      *
      * {@inheritdoc}
      */
+    #[\Override]
     public function save(array|object $entity): bool
     {
         $entity_array = (array) $entity;
@@ -147,6 +153,7 @@ class Repository implements RepositoryInterface
     /**
      * {@inheritdoc}
      */
+    #[\Override]
     public function delete(array|object $entity): bool
     {
         $id = $this->getEntityId($entity);

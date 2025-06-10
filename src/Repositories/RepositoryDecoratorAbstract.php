@@ -42,6 +42,7 @@ abstract class RepositoryDecoratorAbstract implements RepositoryInterface, Repos
      *
      * @inheritDoc
      */
+    #[\Override]
     public function getPersistence(): Persistence
     {
         return $this->repository->getPersistence();
@@ -52,6 +53,7 @@ abstract class RepositoryDecoratorAbstract implements RepositoryInterface, Repos
      *
      * @inheritDoc
      */
+    #[\Override]
     public function setPersistence(Persistence $persistence): self
     {
         $this->repository->setPersistence($persistence);
@@ -63,6 +65,7 @@ abstract class RepositoryDecoratorAbstract implements RepositoryInterface, Repos
      * Delegates getNextId() method call to the inner Repository decoratee.
      * {@inheritdoc}
      */
+    #[\Override]
     public function getNextId(): int|string
     {
         return $this->repository->getNextId();
@@ -73,6 +76,7 @@ abstract class RepositoryDecoratorAbstract implements RepositoryInterface, Repos
      * Delegates get() method call to the inner Repository decoratee.
      * {@inheritdoc}
      */
+    #[\Override]
     public function get($id): object|array
     {
         return $this->repository->get($id);
@@ -83,6 +87,7 @@ abstract class RepositoryDecoratorAbstract implements RepositoryInterface, Repos
      *
      * {@inheritdoc}
      */
+    #[\Override]
     public function findOneBy(array $criteria): null|object|array
     {
         return $this->repository->findOneBy($criteria);
@@ -93,6 +98,7 @@ abstract class RepositoryDecoratorAbstract implements RepositoryInterface, Repos
      *
      * {@inheritdoc}
      */
+    #[\Override]
     public function findAll(): iterable
     {
         return $this->repository->findAll();
@@ -103,6 +109,7 @@ abstract class RepositoryDecoratorAbstract implements RepositoryInterface, Repos
      *
      * {@inheritdoc}
      */
+    #[\Override]
     public function findBy(array $criteria, ?array $orderBy = null, ?int $limit = null, ?int $offset = null): iterable
     {
         return $this->repository->findBy($criteria, $orderBy, $limit, $offset);
@@ -113,6 +120,7 @@ abstract class RepositoryDecoratorAbstract implements RepositoryInterface, Repos
      *
      * {@inheritdoc}
      */
+    #[\Override]
     public function save(object|array $entity): bool
     {
         return $this->repository->save($entity);
@@ -123,6 +131,7 @@ abstract class RepositoryDecoratorAbstract implements RepositoryInterface, Repos
      *
      * {@inheritdoc}
      */
+    #[\Override]
     public function delete(object|array $entity): bool
     {
         return $this->repository->delete($entity);

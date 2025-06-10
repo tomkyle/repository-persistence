@@ -18,6 +18,7 @@ use Symfony\Component\Yaml\Yaml;
  */
 class YamlFilePersistenceTest extends FilePersistenceTestBase
 {
+    #[\Override]
     protected function setUp(): void
     {
         parent::setUp();

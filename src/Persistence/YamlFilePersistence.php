@@ -42,6 +42,7 @@ class YamlFilePersistence extends FilePersistenceAbstract implements FilePersist
      * @return string YAML encoded string.
      * @throws \UnexpectedValueException If encoding fails.
      */
+    #[\Override]
     public function encode(array $data): string
     {
         try {
@@ -56,9 +57,10 @@ class YamlFilePersistence extends FilePersistenceAbstract implements FilePersist
      * Decodes the given YAML string to a PHP array.
      *
      * @param string $content The YAML string to decode.
-     * @return array<string|int,mixed>[] An array of associative arrays.
+     * @return array<mixed,mixed> An array of associative arrays.
      * @throws \UnexpectedValueException If decoding fails or the result is not an array.
      */
+    #[\Override]
     public function decode(string $content): array
     {
         try {

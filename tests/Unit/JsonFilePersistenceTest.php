@@ -17,6 +17,7 @@ use PHPUnit\Framework\TestCase;
  */
 class JsonFilePersistenceTest extends FilePersistenceTestBase
 {
+    #[\Override]
     protected function setUp(): void
     {
         parent::setUp();

@@ -82,6 +82,7 @@ class PersistenceChain implements Persistence
      *
      * @throws \RuntimeException If all persistence mechanisms fail to create the record.
      */
+    #[\Override]
     public function create(array $data): string|int
     {
         $ids = [];
@@ -110,6 +111,7 @@ class PersistenceChain implements Persistence
      *
      * @inheritDoc
      */
+    #[\Override]
     public function read(string|int $id): array
     {
         foreach ($this->persistences as $persistence) {
@@ -129,6 +131,7 @@ class PersistenceChain implements Persistence
      *
      * @inheritDoc
      */
+    #[\Override]
     public function readAll(): array
     {
         foreach ($this->persistences as $persistence) {
@@ -153,6 +156,7 @@ class PersistenceChain implements Persistence
      * @return int The total number of rows affected across all persistence mechanisms.
      * @throws \RuntimeException If all persistence mechanisms fail to update the record.
      */
+    #[\Override]
     public function update(array $data): int
     {
         $totalAffectedRows = 0;
@@ -183,6 +187,7 @@ class PersistenceChain implements Persistence
      * @inheritDoc
      * @return int The total number of rows deleted across all persistence mechanisms.
      */
+    #[\Override]
     public function delete(string|int $id): int
     {
         $totalAffectedRows = 0;

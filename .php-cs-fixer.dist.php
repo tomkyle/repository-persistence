@@ -22,7 +22,7 @@ $finder = PhpCsFixer\Finder::create()
 
 return (new PhpCsFixer\Config())->setRules([
     '@PER-CS' => true,
-    '@PHP82Migration' => true,
+    '@PHP83Migration' => true,
 
     'header_comment' => [
         'comment_type' => 'PHPDoc',

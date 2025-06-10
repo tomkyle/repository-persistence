@@ -51,6 +51,7 @@ class InMemoryPersistence implements Persistence
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function create(array $data): string|int
     {
         $id = array_key_exists('id', $data) ? $data['id'] : uniqid(more_entropy: true);
@@ -65,6 +66,7 @@ class InMemoryPersistence implements Persistence
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function read(string|int $id): array
     {
         $id .= '';
@@ -79,6 +81,7 @@ class InMemoryPersistence implements Persistence
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function readAll(): array
     {
         return $this->data;
@@ -87,6 +90,7 @@ class InMemoryPersistence implements Persistence
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function update(array $data): int
     {
         $id = $data['id'] ?? null;
@@ -103,6 +107,7 @@ class InMemoryPersistence implements Persistence
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function delete(string|int $id): int
     {
         $id .= '';

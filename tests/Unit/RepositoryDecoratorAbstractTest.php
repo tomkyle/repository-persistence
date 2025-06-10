@@ -24,6 +24,7 @@ class RepositoryDecoratorAbstractTest extends TestCase
 
     private $persistence_mock;
 
+    #[\Override]
     protected function setUp(): void
     {
         parent::setUp();

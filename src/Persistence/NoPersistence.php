@@ -44,6 +44,7 @@ class NoPersistence implements Persistence
      * @param array<string,mixed> $data Data intended to be "persisted."
      * @return string|int The mock ID of the newly "created" record.
      */
+    #[\Override]
     public function create(array $data): string|int
     {
         // Simulate successful creation with a mock ID, without storing data
@@ -59,6 +60,7 @@ class NoPersistence implements Persistence
      * @return array<string,mixed> No array will be returned
      * @throws \OutOfBoundsException Always as no data is stored.
      */
+    #[\Override]
     public function read(string|int $id): array
     {
         $msg = sprintf("Intentionally no item stored for ID '%s'.", $id);
@@ -70,6 +72,7 @@ class NoPersistence implements Persistence
      *
      * @inheritDoc
      */
+    #[\Override]
     public function readAll(): array
     {
         return [];
@@ -82,6 +85,7 @@ class NoPersistence implements Persistence
      *
      * @return int Always returns 0 as no data is stored or updated.
      */
+    #[\Override]
     public function update(array $data): int
     {
         // Simulate update operation
@@ -94,6 +98,7 @@ class NoPersistence implements Persistence
      * @param string|int $id The ID of the record to "delete."
      * @return int Always returns 0 as no data is stored or deleted.
      */
+    #[\Override]
     public function delete(string|int $id): int
     {
         // Simulate delete operation

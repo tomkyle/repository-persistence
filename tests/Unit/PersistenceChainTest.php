@@ -11,6 +11,7 @@ namespace tests\Unit;
 use tomkyle\RepositoryPersistence\Persistence\Persistence;
 use tomkyle\RepositoryPersistence\Persistence\PersistenceChain;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * Unit tests for the PersistenceChain class.
@@ -23,6 +24,7 @@ class PersistenceChainTest extends TestCase
 
     private $mockPersistence2;
 
+    #[\Override]
     protected function setUp(): void
     {
         parent::setUp();
@@ -44,9 +46,7 @@ class PersistenceChainTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider dataProviderForCreate
-     */
+    #[DataProvider('dataProviderForCreate')]
     public function testCreateDelegates(array $data, string|int $expectedId): void
     {
         $this->mockPersistence1->expects($this->once())->method('create')->with($data)->willReturn($expectedId);
@@ -62,9 +62,7 @@ class PersistenceChainTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider dataProviderForRetrieve
-     */
+    #[DataProvider('dataProviderForRetrieve')]
     public function testRetrieveDelegates(string|int $id, ?array $expectedData): void
     {
         $this->mockPersistence1->expects($this->once())->method('read')->with($id)->willReturn($expectedData);
@@ -79,9 +77,7 @@ class PersistenceChainTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider dataProviderForUpdate
-     */
+    #[DataProvider('dataProviderForUpdate')]
     public function testUpdateDelegates(array $data, int $affectedRows): void
     {
         $this->mockPersistence1->expects($this->once())->method('update')->with($data)->willReturn(1);
@@ -97,9 +93,7 @@ class PersistenceChainTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider dataProviderForDelete
-     */
+    #[DataProvider('dataProviderForDelete')]
     public function testDeleteDelegates(string|int $id, int $deletedRows): void
     {
         $this->mockPersistence1->expects($this->once())->method('delete')->with($id)->willReturn(1);
