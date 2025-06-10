@@ -27,6 +27,7 @@ class PersistenceTraitTest extends TestCase
      */
     private $sut;
 
+    #[\Override]
     protected function setUp(): void
     {
         parent::setUp();

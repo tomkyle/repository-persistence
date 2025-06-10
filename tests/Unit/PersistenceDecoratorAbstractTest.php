@@ -18,13 +18,16 @@ class PersistenceDecoratorAbstractTest extends TestCase
 
     private PersistenceDecoratorAbstract $sut;
 
+    #[\Override]
     protected function setUp(): void
     {
         parent::setUp();
         // Create a mock for the Persistence interface.
         $this->persistenceMock = $this->createMock(Persistence::class);
-        // Initialize the Subject Under Test (SUT) with the mocked Persistence object.
-        $this->sut = $this->getMockForAbstractClass(PersistenceDecoratorAbstract::class, [$this->persistenceMock]);
+        // Initialize the Subject Under Test (SUT) with an anonymous class extending the abstract class.
+        $this->sut = new class ($this->persistenceMock) extends PersistenceDecoratorAbstract {
+            // No additional methods needed - all abstract methods are already implemented in the parent
+        };
     }
 
     public function testPersistenceIsCorrectlySetAndRetrieved(): void

@@ -18,6 +18,7 @@ class InMemoryPersistenceTest extends TestCase
 {
     private InMemoryPersistence $sut;
 
+    #[\Override]
     protected function setUp(): void
     {
         parent::setUp();

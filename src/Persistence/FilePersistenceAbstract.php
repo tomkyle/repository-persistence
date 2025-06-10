@@ -64,11 +64,13 @@ abstract class FilePersistenceAbstract implements FilePersistence
     /**
      * @inheritDoc
      */
+    #[\Override]
     abstract public function encode(array $data): string;
 
     /**
      * @inheritDoc
      */
+    #[\Override]
     abstract public function decode(string $content): array;
 
 
@@ -76,6 +78,7 @@ abstract class FilePersistenceAbstract implements FilePersistence
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function getExtension(bool $dot = false): string
     {
 
@@ -90,6 +93,7 @@ abstract class FilePersistenceAbstract implements FilePersistence
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function getBaseDir(): string
     {
         return $this->basedir;
@@ -99,6 +103,7 @@ abstract class FilePersistenceAbstract implements FilePersistence
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function getFilePath(int|string $id): string
     {
         if (is_string($id) && ($id === '' || $id === '0')) {
@@ -140,6 +145,7 @@ abstract class FilePersistenceAbstract implements FilePersistence
      * @inheritDoc
      * @param int $permissions Optional: Override directory permissions, default: null
      */
+    #[\Override]
     public function setBaseDir(string $basedir, ?int $permissions = null): self
     {
         $basedir = rtrim($basedir, DIRECTORY_SEPARATOR);
@@ -165,6 +171,7 @@ abstract class FilePersistenceAbstract implements FilePersistence
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function create(array $data): string|int
     {
         if (!array_key_exists('id', $data)) {
@@ -193,6 +200,7 @@ abstract class FilePersistenceAbstract implements FilePersistence
      * @throws \UnexpectedValueException if decoding JSON failed
      * @throws \OutOfBoundsException when no record can be found
      */
+    #[\Override]
     public function read(string|int $id): array
     {
         $file_path = $this->getFilePath($id);
@@ -215,6 +223,7 @@ abstract class FilePersistenceAbstract implements FilePersistence
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function readAll(): array
     {
         $ext = $this->getExtension(dot: true);
@@ -232,6 +241,7 @@ abstract class FilePersistenceAbstract implements FilePersistence
      * @throws \UnexpectedValueException if ID element is not string|int
      * @throws \UnexpectedValueException if file can not be found
      */
+    #[\Override]
     public function update(array $data): int
     {
         $id = $data['id'] ?? null;
@@ -255,6 +265,7 @@ abstract class FilePersistenceAbstract implements FilePersistence
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function delete(string|int $id): int
     {
         $file_path = $this->getFilePath($id);
@@ -277,6 +288,7 @@ abstract class FilePersistenceAbstract implements FilePersistence
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function readFromFile(string $file_path): string
     {
         if (!file_exists($file_path)) {
@@ -302,6 +314,7 @@ abstract class FilePersistenceAbstract implements FilePersistence
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function writeToFile(string $file_path, \Stringable|string $file_content): bool
     {
         if ($file_content instanceof \Stringable) {

@@ -41,6 +41,7 @@ class JsonFilePersistence extends FilePersistenceAbstract implements FilePersist
      * @return string JSON encoded string.
      * @throws \UnexpectedValueException If encoding fails.
      */
+    #[\Override]
     public function encode(array $data): string
     {
         try {
@@ -61,9 +62,10 @@ class JsonFilePersistence extends FilePersistenceAbstract implements FilePersist
      * Decodes the given JSON string to a PHP array.
      *
      * @param string $content The JSON string to decode.
-     * @return array<string|int,mixed>[] An array of associative arrays.
+     * @return array<mixed,mixed> An array of associative arrays.
      * @throws \RuntimeException If decoding fails or the result is not an array.
      */
+    #[\Override]
     public function decode(string $content): array
     {
         try {

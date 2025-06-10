@@ -58,6 +58,7 @@ class FrontmatterFilePersistence extends FilePersistenceDecoratorAbstract
      *
      * @param mixed $store Optional: Store frontmatter in variable passed by reference
      */
+    #[\Override]
     public function read(string|int $id, &$store = null): array
     {
         $file_path = $this->persistence->getFilePath($id);
@@ -74,6 +75,7 @@ class FrontmatterFilePersistence extends FilePersistenceDecoratorAbstract
      *
      * @inheritDoc
      */
+    #[\Override]
     public function readAll(): array
     {
         $ext = $this->persistence->getExtension();
@@ -94,6 +96,7 @@ class FrontmatterFilePersistence extends FilePersistenceDecoratorAbstract
      * @inheritDoc
      * @param mixed $store Optional: Store frontmatter in variable passed by reference
      */
+    #[\Override]
     public function readFromFile(string $file_path, &$store = null): string
     {
         $content = $this->persistence->readFromFile($file_path);
@@ -109,6 +112,7 @@ class FrontmatterFilePersistence extends FilePersistenceDecoratorAbstract
      * @inheritDoc
      * @param array<string,mixed> $custom Merge frontmatter data
      */
+    #[\Override]
     public function writeToFile(string $file_path, \Stringable|string $file_content, array $custom = []): bool
     {
         $yaml = Yaml::dump(array_merge($this->frontmatter, $custom), flags: $this->yaml_options);

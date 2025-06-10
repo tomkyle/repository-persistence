@@ -53,6 +53,7 @@ class FrontmatterFilePersistenceTest extends TestCase
      * Sets up the test environment with a mock FilePersistence and an instance of the SUT.
      * It also creates a temporary file path for use in file operations.
      */
+    #[\Override]
     protected function setUp(): void
     {
         parent::setUp();
@@ -70,6 +71,7 @@ class FrontmatterFilePersistenceTest extends TestCase
     /**
      * Cleans up the testing environment by removing the temporary file if it exists.
      */
+    #[\Override]
     protected function tearDown(): void
     {
         if (file_exists($this->tempFilePath)) {

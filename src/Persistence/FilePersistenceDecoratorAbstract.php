@@ -27,6 +27,7 @@ abstract class FilePersistenceDecoratorAbstract extends PersistenceDecoratorAbst
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function getExtension(): string
     {
         return $this->persistence->getExtension();
@@ -35,6 +36,7 @@ abstract class FilePersistenceDecoratorAbstract extends PersistenceDecoratorAbst
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function getFilePath(int|string $id): string
     {
         return $this->persistence->getFilePath($id);
@@ -43,6 +45,7 @@ abstract class FilePersistenceDecoratorAbstract extends PersistenceDecoratorAbst
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function setBaseDir(string $basedir): self
     {
         $this->persistence->setBaseDir($basedir);
@@ -52,6 +55,7 @@ abstract class FilePersistenceDecoratorAbstract extends PersistenceDecoratorAbst
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function getBaseDir(): string
     {
         return $this->persistence->getBaseDir();
@@ -60,6 +64,7 @@ abstract class FilePersistenceDecoratorAbstract extends PersistenceDecoratorAbst
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function readFromFile(string $file_path): string
     {
         return $this->persistence->readFromFile($file_path);
@@ -68,6 +73,7 @@ abstract class FilePersistenceDecoratorAbstract extends PersistenceDecoratorAbst
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function writeToFile(string $file_path, \Stringable|string $file_content): bool
     {
         return $this->persistence->writeToFile($file_path, $file_content);
@@ -76,6 +82,7 @@ abstract class FilePersistenceDecoratorAbstract extends PersistenceDecoratorAbst
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function encode(array $data): string
     {
         return $this->persistence->encode($data);
@@ -84,6 +91,7 @@ abstract class FilePersistenceDecoratorAbstract extends PersistenceDecoratorAbst
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function decode(string $content): array
     {
         return $this->persistence->decode($content);

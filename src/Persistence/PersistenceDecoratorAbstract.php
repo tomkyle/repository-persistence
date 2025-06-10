@@ -23,6 +23,7 @@ abstract class PersistenceDecoratorAbstract implements Persistence, PersistenceA
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function create(array $data): string|int
     {
         return $this->persistence->create($data);
@@ -31,6 +32,7 @@ abstract class PersistenceDecoratorAbstract implements Persistence, PersistenceA
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function read(string|int $id): array
     {
         return $this->persistence->read($id);
@@ -39,6 +41,7 @@ abstract class PersistenceDecoratorAbstract implements Persistence, PersistenceA
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function readAll(): array
     {
         return $this->persistence->readAll();
@@ -47,6 +50,7 @@ abstract class PersistenceDecoratorAbstract implements Persistence, PersistenceA
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function update(array $data): int
     {
         return $this->persistence->update($data);
@@ -55,6 +59,7 @@ abstract class PersistenceDecoratorAbstract implements Persistence, PersistenceA
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function delete(string|int $id): int
     {
         return $this->persistence->delete($id);

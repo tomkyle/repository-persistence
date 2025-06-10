@@ -9,6 +9,7 @@
 namespace tests\Integration;
 
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 use tomkyle\RepositoryPersistence\Repositories\Repository;
 use tomkyle\RepositoryPersistence\Persistence\FilePersistence;
 use tomkyle\RepositoryPersistence\Persistence\YamlFilePersistence;
@@ -40,9 +41,7 @@ class RepositoryWithFilePersistenceTest extends TestCase
     public static $temp_fixtures_dirs = [];
 
 
-    /**
-     * @dataProvider provideFilePersistences
-     */
+    #[DataProvider('provideFilePersistences')]
     public function testFindItemByItsId($persistence): void
     {
         $repo = new Repository($persistence);
@@ -60,9 +59,7 @@ class RepositoryWithFilePersistenceTest extends TestCase
     }
 
 
-    /**
-     * @dataProvider provideFilePersistences
-     */
+    #[DataProvider('provideFilePersistences')]
     public function testFindAllItems($persistence): void
     {
         $repo = new Repository($persistence);
@@ -74,9 +71,7 @@ class RepositoryWithFilePersistenceTest extends TestCase
     }
 
 
-    /**
-     * @dataProvider provideFilePersistences
-     */
+    #[DataProvider('provideFilePersistences')]
     public function testUpdateItem($persistence): void
     {
         $repo = new Repository($persistence);
@@ -119,9 +114,7 @@ class RepositoryWithFilePersistenceTest extends TestCase
     }
 
 
-    /**
-     * @dataProvider provideFilePersistences
-     */
+    #[DataProvider('provideFilePersistences')]
     public function testDeleteItem($persistence): void
     {
         $repo = new Repository($persistence);

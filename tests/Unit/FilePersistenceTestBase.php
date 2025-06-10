@@ -9,6 +9,7 @@
 namespace tests\Unit;
 
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 use tomkyle\RepositoryPersistence\Persistence\YamlFilePersistence;
 use Spatie\TemporaryDirectory\TemporaryDirectory;
 
@@ -22,6 +23,7 @@ abstract class FilePersistenceTestBase extends TestCase
 
     protected $sut;
 
+    #[\Override]
     protected function setUp(): void
     {
         parent::setUp();
@@ -32,6 +34,7 @@ abstract class FilePersistenceTestBase extends TestCase
         $this->sut = new YamlFilePersistence($base_dir);
     }
 
+    #[\Override]
     protected function tearDown(): void
     {
         $this->temp_dir->delete();
@@ -142,9 +145,7 @@ abstract class FilePersistenceTestBase extends TestCase
     }
 
 
-    /**
-     * @dataProvider invalidBaseDirProvider
-     */
+    #[DataProvider('invalidBaseDirProvider')]
     public function testExceptionOnInvalidSetBaseDir(string $new_base_dir): void
     {
         $this->expectException(\UnexpectedValueException::class);

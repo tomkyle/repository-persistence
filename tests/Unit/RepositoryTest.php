@@ -9,6 +9,7 @@
 namespace tests\Unit;
 
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 use tomkyle\RepositoryPersistence\Repositories\Repository;
 use tomkyle\RepositoryPersistence\Persistence\Persistence;
 use tomkyle\RepositoryPersistence\Persistence\NoPersistence;
@@ -28,6 +29,7 @@ class RepositoryTest extends TestCase
 
     private $sut; // Subject under test
 
+    #[\Override]
     protected function setUp(): void
     {
         parent::setUp();
@@ -106,9 +108,8 @@ class RepositoryTest extends TestCase
 
     /**
      * Tests the findAll method.
-     *
-     * @dataProvider provideRepositoryAndPersistencesWithCriteria
      */
+    #[DataProvider('provideRepositoryAndPersistencesWithCriteria')]
     public function testFindAll($sut, $criteria, $expected_count): void
     {
         $result = $sut->findAll();
@@ -118,9 +119,8 @@ class RepositoryTest extends TestCase
 
     /**
      * Tests the findBy method.
-     *
-     * @dataProvider provideRepositoryAndPersistencesWithCriteria
      */
+    #[DataProvider('provideRepositoryAndPersistencesWithCriteria')]
     public function testFindMethod($sut, $criteria, $expected_count): void
     {
         $collection = $sut->findBy($criteria);
@@ -131,9 +131,8 @@ class RepositoryTest extends TestCase
 
     /**
      * Tests the findBy method and expect at least one result.
-     *
-     * @dataProvider provideRepositoryAndPersistencesWithCriteria
      */
+    #[DataProvider('provideRepositoryAndPersistencesWithCriteria')]
     public function testFindOneByMethod($sut, $criteria, $expectable_count): void
     {
         $record = $sut->findOneBy($criteria);

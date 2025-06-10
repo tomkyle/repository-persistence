@@ -35,6 +35,7 @@ class CriteriaCheck implements CriteriaCheckInterface
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function __invoke(array|object $record): bool
     {
         return $this->accept($record);
@@ -44,6 +45,7 @@ class CriteriaCheck implements CriteriaCheckInterface
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function accept(array|object $record): bool
     {
         if (!is_array($record)) {
@@ -64,6 +66,7 @@ class CriteriaCheck implements CriteriaCheckInterface
     /**
      * @inherit
      */
+    #[\Override]
     public function setCriteria(array $criteria): self
     {
         $this->criteria = $criteria;
