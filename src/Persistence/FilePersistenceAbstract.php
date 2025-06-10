@@ -1,7 +1,7 @@
 <?php
 
 /**
- * tomkyle/repository-persistence
+ * This file is part of tomkyle/repository-persistence
  *
  * Scaffold for Repository-and-Persistence design pattern
  */
@@ -49,7 +49,7 @@ abstract class FilePersistenceAbstract implements FilePersistence
     /**
      * @param string $basedir The base directory for file storage.
      */
-    public function __construct(string $basedir = null)
+    public function __construct(?string $basedir = null)
     {
         $basedir = $basedir ?: getcwd();
         if ($basedir === false) {
@@ -140,7 +140,7 @@ abstract class FilePersistenceAbstract implements FilePersistence
      * @inheritDoc
      * @param int $permissions Optional: Override directory permissions, default: null
      */
-    public function setBaseDir(string $basedir, int $permissions = null): self
+    public function setBaseDir(string $basedir, ?int $permissions = null): self
     {
         $basedir = rtrim($basedir, DIRECTORY_SEPARATOR);
         if ($basedir === '' || $basedir === '0') {

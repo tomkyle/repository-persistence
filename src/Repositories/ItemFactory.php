@@ -1,7 +1,7 @@
 <?php
 
 /**
- * tomkyle/repository-persistence
+ * This file is part of tomkyle/repository-persistence
  *
  * Scaffold for Repository-and-Persistence design pattern
  */

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * tomkyle/repository-persistence
+ * This file is part of tomkyle/repository-persistence
  *
  * Scaffold for Repository-and-Persistence design pattern
  */
@@ -13,7 +13,6 @@ use tomkyle\RepositoryPersistence\Repositories\RepositoryDecoratorAbstract;
 use tomkyle\RepositoryPersistence\Repositories\RepositoryInterface;
 use tomkyle\RepositoryPersistence\Repositories\Repository;
 use tomkyle\RepositoryPersistence\Persistence\Persistence;
-
 use App\Resources\ResourceInterface;
 use App\Resources\ResourceCollectionInterface;
 

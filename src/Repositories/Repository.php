@@ -1,7 +1,7 @@
 <?php
 
 /**
- * tomkyle/repository-persistence
+ * This file is part of tomkyle/repository-persistence
  *
  * Scaffold for Repository-and-Persistence design pattern
  */
@@ -53,7 +53,7 @@ class Repository implements RepositoryInterface
      * @param callable|null $item_factory A callable that transforms data into an array|object. Defaults to null.
      * @param callable|null $collection_factory A callable that transforms data into an iterable collection of arrays or objects. Defaults to null.
      */
-    public function __construct(Persistence $persistence, callable $item_factory = null, callable $collection_factory = null, CriteriaCheckInterface $criteria_check = null)
+    public function __construct(Persistence $persistence, ?callable $item_factory = null, ?callable $collection_factory = null, ?CriteriaCheckInterface $criteria_check = null)
     {
         $this->setPersistence($persistence);
         $this->setItemFactory($item_factory ?: new ItemFactory());

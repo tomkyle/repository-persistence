@@ -1,7 +1,7 @@
 <?php
 
 /**
- * tomkyle/repository-persistence
+ * This file is part of tomkyle/repository-persistence
  *
  * Scaffold for Repository-and-Persistence design pattern
  */
@@ -32,7 +32,7 @@ class PersistenceTraitTest extends TestCase
         parent::setUp();
 
         // Create an anonymous class that uses the PersistenceTrait
-        $this->sut = new class () {
+        $this->sut = new class {
             use PersistenceTrait;
         };
     }
