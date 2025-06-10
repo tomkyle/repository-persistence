@@ -24,8 +24,8 @@ jobs:
       fail-fast: false
       matrix:
         php-version:
-          - "8.2"
           - "8.3"
+          - "8.4"
         dependency-versions:
           - "lowest"
           - "highest"
